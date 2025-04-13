@@ -67,7 +67,7 @@ def recorte_central(imagem, largura_crop, altura_crop, pasta_saida):
     x_inicio = max(0, largura // 2 - largura_crop // 2)
     y_inicio = max(0, altura // 2 - altura_crop // 2)
     recorte = imagem[y_inicio:y_inicio+altura_crop, x_inicio:x_inicio+largura_crop]
-    cv2.imwrite(f"{pasta_saida}/imagem_recortada_300x300.jpg", recorte)
+    cv2.imwrite(f"{pasta_saida}/imagem_recortada300x300.jpg", recorte)
     return recorte
 
 #7 - Binarização com Otsu
