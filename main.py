@@ -12,7 +12,14 @@ def carregar_imagem(caminho_imagem):
     imagem = cv2.imread(caminho_imagem)
     if imagem is None:
         raise FileNotFoundError(f"Erro ao carregar a imagem: {caminho_imagem}")
+
+    # Exibir a imagem original
+    cv2.imshow("Imagem Original", imagem)
+    cv2.waitKey(0)  # Espera até uma tecla ser pressionada
+    cv2.destroyAllWindows()  # Fecha a janela
+
     return imagem
+
 
 # 2 - Pré-processamento - Escala de cinza + equalização de histograma
 def pre_processamento(imagem, pasta_saida):
@@ -67,7 +74,7 @@ def recorte_central(imagem, largura_crop, altura_crop, pasta_saida):
     x_inicio = max(0, largura // 2 - largura_crop // 2)
     y_inicio = max(0, altura // 2 - altura_crop // 2)
     recorte = imagem[y_inicio:y_inicio+altura_crop, x_inicio:x_inicio+largura_crop]
-    cv2.imwrite(f"{pasta_saida}/imagem_recortada300x300.jpg", recorte)
+    cv2.imwrite(f"{pasta_saida}/imagem_recortada_300x300.jpg", recorte)
     return recorte
 
 #7 - Binarização com Otsu
